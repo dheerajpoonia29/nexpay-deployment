@@ -1,7 +1,2 @@
-# Compiled class file
-*.class
-
-bank-backend/nexapay-bank-backend
-bank-backend/target
-user-backend/nexapay-user-backend
-user-backend/target
+nexapay-bank-backend
+nexapay-user-backend

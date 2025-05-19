@@ -12,11 +12,11 @@ services:
       - "3306:3306"
 
   nexapay-bank-backend:
-    build: ./bank-backend
+    build: ./nexapay-bank-backend
     image: nexapay-bank-backend-image
     container_name: nexapay-bank-backend-container
     environment:
-      - DATABASE_URL=jdbc:mysql://mysql-container:3306/nexpay
+      - DATABASE_URL=jdbc:mysql://mysql-container:3306/nexapay
       - DATASOURCE_USERNAME=root
       - DATASOURCE_PASSWORD=root1234
       - USER_ACCOUNT_API_URL=http://nexapay-user-backend-container:8081
@@ -28,11 +28,11 @@ services:
       - "8082:8082"
 
   nexapay-user-backend:
-    build: ./user-backend
+    build: ./nexapay-user-backend
     image: nexapay-user-backend-image
     container_name: nexapay-user-backend-container
     environment:
-      - DATABASE_URL=jdbc:mysql://mysql-container:3306/nexpay
+      - DATABASE_URL=jdbc:mysql://mysql-container:3306/nexapay
       - DATASOURCE_USERNAME=root
       - DATASOURCE_PASSWORD=root1234
       - BANK_API_URL=http://nexapay-bank-backend-container:8082
