@@ -6,6 +6,8 @@
       <list>
         <option value="$PROJECT_DIR$/bank-backend/nexapay-bank-backend/pom.xml" />
         <option value="$PROJECT_DIR$/user-backend/nexapay-user-backend/pom.xml" />
+        <option value="$PROJECT_DIR$/nexapay-bank-backend/pom.xml" />
+        <option value="$PROJECT_DIR$/nexapay-user-backend/pom.xml" />
       </list>
     </option>
   </component>
