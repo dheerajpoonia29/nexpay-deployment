@@ -1,0 +1,48 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: root1234
+      MYSQL_DATABASE: nexapay
+    networks:
+      - app-network
+    ports:
+      - "3306:3306"
+
+  nexapay-bank-backend:
+    build: ./bank-backend
+    image: nexapay-bank-backend-image
+    container_name: nexapay-bank-backend-container
+    environment:
+      - DATABASE_URL=jdbc:mysql://mysql-container:3306/nexpay
+      - DATASOURCE_USERNAME=root
+      - DATASOURCE_PASSWORD=root1234
+      - USER_ACCOUNT_API_URL=http://nexapay-user-backend-container:8081
+    depends_on:
+      - mysql
+    networks:
+      - app-network
+    ports:
+      - "8082:8082"
+
+  nexapay-user-backend:
+    build: ./user-backend
+    image: nexapay-user-backend-image
+    container_name: nexapay-user-backend-container
+    environment:
+      - DATABASE_URL=jdbc:mysql://mysql-container:3306/nexpay
+      - DATASOURCE_USERNAME=root
+      - DATASOURCE_PASSWORD=root1234
+      - BANK_API_URL=http://nexapay-bank-backend-container:8082
+    depends_on:
+      - mysql
+    networks:
+      - app-network
+    ports:
+      - "8081:8081"
+
+networks:
+  app-network:
+    driver: bridge
