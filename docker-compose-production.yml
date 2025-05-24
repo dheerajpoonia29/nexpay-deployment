@@ -1,27 +1,14 @@
 version: '3'
 services:
-  mysql:
-    build: ./mysql
-    image: mysql:latest
-    container_name: mysql-container
-    volumes:
-      - mysql-data:/var/lib/mysql
-    networks:
-      - app-network
-    ports:
-      - "3306:3306"
-
   nexapay-bank-backend:
     build: ./nexapay-bank-backend
     image: bank-backend-image
     container_name: bank-backend-container
     environment:
-      - DATABASE_URL=jdbc:mysql://mysql-container:3306/nexapay
-      - DATASOURCE_USERNAME=root
-      - DATASOURCE_PASSWORD=root1234
+      - DATABASE_URL=jdbc:mysql://nexpay-mysql-nexapay.l.aivencloud.com:11021/nexapay
+      - DATASOURCE_USERNAME=avnadmin
+      - DATASOURCE_PASSWORD=AVNS_pSZZmJnaOAxQKEwedTz
       - USER_ACCOUNT_API_URL=http://user-backend-container:8081
-    depends_on:
-      - mysql
     networks:
       - app-network
     ports:
@@ -32,12 +19,10 @@ services:
     image: user-backend-image
     container_name: user-backend-container
     environment:
-      - DATABASE_URL=jdbc:mysql://mysql-container:3306/nexapay
-      - DATASOURCE_USERNAME=root
-      - DATASOURCE_PASSWORD=root1234
+      - DATABASE_URL=jdbc:mysql://nexpay-mysql-nexapay.l.aivencloud.com:11021/nexapay
+      - DATASOURCE_USERNAME=avnadmin
+      - DATASOURCE_PASSWORD=AVNS_pSZZmJnaOAxQKEwedTz
       - BANK_API_URL=http://bank-backend-container:8082
-    depends_on:
-      - mysql
     networks:
       - app-network
     ports:
@@ -53,7 +38,6 @@ services:
       VITE_API_USER_AND_ACCOUNT_API_URL: http://localhost:8081
       VITE_API_BANK_API_URL: http://localhost:8082
     depends_on:
-      - mysql
       - nexapay-bank-backend
       - nexapay-user-backend
     networks:

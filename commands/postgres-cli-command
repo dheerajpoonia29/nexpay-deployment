@@ -1,0 +1,9 @@
+brew install postgresql@17
+echo 'export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"' >> ~/.zprofile
+source ~/.zprofile
+psql --version
+
+/*
+initdb /opt/homebrew/var/postgresql@17 (no need to run this, automatically create db and username is dheerajpoonia29)
+*/
+
