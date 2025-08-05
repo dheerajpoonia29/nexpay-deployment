@@ -2,9 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/nexapay-backend-common" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/nexapay-bank-backend" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/nexapay-frontend" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/nexapay-user-backend" vcs="Git" />
   </component>
 </project>

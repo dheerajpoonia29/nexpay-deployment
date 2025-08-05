@@ -1,4 +1,3 @@
-version: '3'
 services:
   mysql:
     build: ./mysql
@@ -12,7 +11,7 @@ services:
       - "3306:3306"
 
   nexapay-bank-backend:
-    build: ./nexapay-bank-backend
+    build: ../nexapay-bank-backend
     image: bank-backend-image
     container_name: bank-backend-container
     environment:
@@ -28,7 +27,7 @@ services:
       - "8082:8082"
 
   nexapay-user-backend:
-    build: ./nexapay-user-backend
+    build: ../nexapay-user-backend
     image: user-backend-image
     container_name: user-backend-container
     environment:
@@ -44,7 +43,7 @@ services:
       - "8081:8081"
 
   nexapay-frontend:
-    build: ./nexapay-frontend
+    build: ../nexapay-frontend
     image: frontend-image
     container_name: frontend-container
     command: npm run dev

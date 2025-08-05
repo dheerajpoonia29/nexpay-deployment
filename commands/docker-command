@@ -8,5 +8,5 @@ docker compose down
 docker ps // get list of running container
 docker network ls // search network
 
-docker-compose down -v --remove-orphans
-docker-compose up --build
+
+docker buildx build --platform linux/amd64 -t idp29/frontend-image:latest -f ../nexapay-frontend/Dockerfile nexapay-frontend --push

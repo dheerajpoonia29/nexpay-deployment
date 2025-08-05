@@ -6,9 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="nexapay-bank-backend" />
       </profile>
-      <profile name="Annotation profile for nexapay" enabled="true">
+      <profile name="Annotation profile for nexapay-bank-backend" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -16,6 +15,7 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
         </processorPath>
         <module name="nexapay-user-backend" />
+        <module name="nexapay-bank-backend" />
       </profile>
     </annotationProcessing>
   </component>

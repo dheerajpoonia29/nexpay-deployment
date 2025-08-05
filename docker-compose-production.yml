@@ -35,8 +35,8 @@ services:
     command: npm run dev
     environment:
       NODE_ENV: development
-      VITE_API_USER_AND_ACCOUNT_API_URL: http://localhost:8081
-      VITE_API_BANK_API_URL: http://localhost:8082
+      VITE_API_USER_AND_ACCOUNT_API_URL: https://user-backend-image.onrender.com
+      VITE_API_BANK_API_URL: https://bank-backend-image.onrender.com
     depends_on:
       - nexapay-bank-backend
       - nexapay-user-backend
